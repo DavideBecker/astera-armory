@@ -1,0 +1,52 @@
+.icon {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-position: contain;
+
+    &.normal {
+        background-size: 32px;
+        display: inline-block;
+    }
+
+    &.small {
+        background-size: 16px;
+    }
+
+    &.head   { background-image: url('../images/head.png');   }
+    &.chest  { background-image: url('../images/chest.png');  }
+    &.gloves { background-image: url('../images/gloves.png'); }
+    &.waist  { background-image: url('../images/waist.png');  }
+    &.legs   { background-image: url('../images/legs.png');   }
+
+    &.charm  { background-image: url('../images/charm.png');  }
+
+    &.bow               { background-image: url('../images/bow.png');               }
+    &.charge-blade      { background-image: url('../images/charge-blade.png');      }
+    &.dual-blades       { background-image: url('../images/dual-blades.png');       }
+    &.great-sword       { background-image: url('../images/great-sword.png');       }
+    &.gunlance          { background-image: url('../images/gunlance.png');          }
+    &.hammer            { background-image: url('../images/hammer.png');            }
+    &.heavy-bowgun      { background-image: url('../images/heavy-bowgun.png');      }
+    &.hunting-horn      { background-image: url('../images/hunting-horn.png');      }
+    &.insect-glaive     { background-image: url('../images/insect-glaive.png');     }
+    &.lance             { background-image: url('../images/lance.png');             }
+    &.light-bowgun      { background-image: url('../images/light-bowgun.png');      }
+    &.long-sword        { background-image: url('../images/long-sword.png');        }
+    &.switch-axe        { background-image: url('../images/switch-axe.png');        }
+    &.sword-and-shield  { background-image: url('../images/sword-and-shield.png');  }
+
+    &.decoration-1 { background-image: url('../images/decoration-1.png') }
+    &.decoration-2 { background-image: url('../images/decoration-2.png') }
+    &.decoration-3 { background-image: url('../images/decoration-3.png') }
+}
+
+i.icon {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+
+    &.small {
+        width: 16px;
+        height: 16px;
+    }
+}

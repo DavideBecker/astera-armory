@@ -1,0 +1,256 @@
+@import reset
+@import icons
+
+$rare0: #FFFFFD
+$rare1: #FFFFFD
+$rare2: #FFFFFD
+$rare3: #F6CF61
+$rare4: #75C78B
+
+$rare5: #9CCCF7
+$rare6: #757EEF
+$rare7: #A459BB
+$rare8: #F59A60
+
+$grey: #5F6469
+
+$blue: #1E4354
+
+$green: #347525
+$greenLight: #6EB45B
+
+$color: #B4C2C4
+$colorLight: darken(#E7EAE9, 10%)
+
+html
+    // background: url('../images/background.jpg') center center / cover fixed no-repeat
+    height: 100%
+    background-color: #EFEFEF
+
+    *
+        box-sizing: border-box
+        font-family: 'IBM Plex Sans', sans-serif
+
+%full-size
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+
+$animTime: 5s
+$animBorderWidth: 2px
+
+=dirty
+    background-image: url("../images/dirty.png")
+
+=shadow
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.075)
+
+=whiteText
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2)
+
+=tablet
+    @media (max-width: 768px)
+        @content
+
+=interactive
+    border: $animBorderWidth solid $grey
+    border-radius: 3px
+    position: relative
+    z-index: 999
+    color: $color
+    background-color: #2A2829
+    +whiteText
+
+    &.highlight
+        background-color: $blue
+        +dirty
+
+    &:hover
+        border-color: $green
+        cursor: pointer
+        color: $colorLight
+
+        &:before, &:after
+            @extend %full-size
+            content: ''
+            z-index: 1
+            margin: -1 * 0 * 100%
+            // box-shadow: inset 0 0 0 2px
+            // background-color: rgba(#FFF, 0.1)
+            // border: 0 solid #F00
+            border: 0 solid $greenLight
+            border-top-width: 1px
+            animation: dancingBorders $animTime linear infinite alternate-reverse
+
+        &:before
+        
+        &:after
+            animation-delay: -$animTime / 2
+
+.rarity-
+    &0
+        background-color: $rare0
+
+    &1
+        background-color: $rare1
+
+    &2
+        background-color: $rare2
+
+    &3
+        background-color: $rare3
+
+    &4
+        background-color: $rare4
+
+    &5
+        background-color: $rare5
+
+    &6
+        background-color: $rare6
+
+    &7
+        background-color: $rare7
+
+    &8
+        background-color: $rare8
+
+.icon.rarity
+    background-blend-mode: multiply
+
+#main-headline
+    color: $color
+    font-size: 72px
+    font-weight: 500
+    text-align: center
+    margin-top: 32px
+
+#sub-headline
+    color: $colorLight
+    font-size: 32px
+    text-align: center
+    margin-bottom: 32px
+
+#block-wrapper
+    margin-top: 32px
+    display: flex
+    max-width: 1800px
+    margin: 0 auto
+    flex-wrap: wrap
+
+#equipment
+    flex: 2 3 510px
+    display: flex
+    flex-wrap: wrap
+
+#info
+    flex: 1 3 300px
+    background-color: #F00
+
+.gear
+    background-color: rgba(#040404, 0.8)
+    // background-color: #040404
+    padding: 24px
+    color: #8D8D8D
+    flex: 1 1 500px
+    margin: 8px
+    +dirty
+    +shadow
+
+    &:first-child
+        flex: 1 1 1000px
+
+    .gear-icon
+        border-radius: 3px
+        width: 38px
+        height: 38px
+        flex: 38px 0 0
+
+    .gear-info
+        display: flex
+        width: 100%
+
+        .gear-inputs
+            display: flex
+            flex-direction: column
+            margin-left: 24px
+            width: 100%
+
+        .gear-name
+            padding: 8px 12px
+            font-weight: 500
+            width: 100%
+            +interactive
+
+    .gear-slots
+        display: flex
+        flex-wrap: wrap
+        width: 100%
+        margin-top: 16px
+
+        .gear-slot
+            padding: 4px 8px
+            margin-right: 8px
+            width: 100%
+            flex: 1 120px
+            display: flex
+            align-items: center
+            +interactive
+
+            &:last-child
+                margin: 0
+
+            .gear-slot-gem-name
+                padding-left: 8px
+                font-size: 14px
+        
+        +tablet
+            flex-wrap: nowrap
+            flex-direction: column
+
+            .gear-slot
+                flex: 1
+                margin-bottom: 8px
+
+
+$borderWidth: 1px
+
+$sizeLo: $borderWidth
+$sizeHi: #{calc(100% + #{$borderWidth * 2})}
+$posLo: -$borderWidth
+$posHi: #{calc(100% - #{$borderWidth - 0.5}}
+
+@keyframes dancingBorders
+    0%, 100%
+        width: $sizeHi
+        height: $sizeLo
+        top: $posLo
+        left: $posLo
+        border-width: $borderWidth 0 0 0
+        // background-color: #F00
+
+    25%
+        width: $sizeLo
+        height: $sizeHi
+        top: $posLo
+        left: $posLo
+        border-width: 0 0 0 $borderWidth
+        // background-color: #0F0
+
+    50%
+        width: $sizeHi
+        height: $sizeLo
+        top: $posHi
+        left: $posLo
+        border-width: 0 0 $borderWidth 0
+        // background-color: #00F
+
+    75%
+        width: $sizeLo
+        height: $sizeHi
+        top: $posLo
+        left: $posHi
+        border-width: 0 $borderWidth 0 0
+        // background-color: #FFF

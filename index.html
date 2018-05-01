@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="./assets/js/doT.js"></script>
+
+    <script src="./assets/data/armor.js"></script>
+    <script src="./assets/data/weapons.js"></script>
+    <script src="./assets/data/charms.js"></script>
+    <script src="./assets/data/decorations.js"></script>
+    <script src="./assets/data/skills.js"></script>
+    <title>Astera Armory</title>
+
+    <script id="tpl-gear" type="text/template">
+        <div class="gear">
+            <div class="gear-info">
+                <div class="gear-icon normal {{= it.type }} icon rarity rarity-{{= it.rarity }}"></div>
+                <div class="gear-inputs">
+                    <div class="gear-name">{{= it.name }}</div>
+                    {{? it.slots.length }}
+                        <div class="gear-slots">
+                            {{ for(var slot of it.slots) { }}
+                                <div class="gear-slot highlight">
+                                    <i class="small decoration-{{= slot.rank }} icon"></i>
+                                    <span class="gear-slot-gem-name">
+                                        {{? slot.decoration }}
+                                            {{= slot.decoration.name }}
+                                        {{??}}
+                                            ---
+                                        {{?}}
+                                    </span>
+                                </div>
+                            {{ } }}
+                        </div>
+                    {{?}}
+                </div>
+            </div>
+        </div>
+    </script>
+</head>
+<body>
+
+    <div id="main-headline">Astera Armory</div>
+    <div id="sub-headline">Share your mixed armor set</div>
+
+    <div id="block-wrapper">
+        <div class="flex-block" id="equipment">
+
+        </div>
+        <div class="flex-block" id="info">
+        </div>
+    </div>
+
+
+    <script src="./assets/js/scripts.js"></script>
+</body>
+</html>
