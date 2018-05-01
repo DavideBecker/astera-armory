@@ -224,37 +224,6 @@ function merge(obj, prop, val) {
 
 function populateGear() {
     state.gear = []
-    // state.gear = [{
-    //     category: 'weapon',
-    //     data: rand(weapons),
-    //     decorations: [rand(decorations)]
-    // }, {
-    //     category: 'charm',
-    //     data: rand(charms),
-    //     decorations: []
-    // }, {
-    //     category: 'armor',
-    //     data: randomOfType(armor, 'gloves'),
-    //     decorations: [rand(decorations)]
-    // }, {
-    //     category: 'armor',
-    //     data: randomOfType(armor, 'head'),
-    //     decorations: [rand(decorations), rand(decorations)]
-    // }, {
-    //     category: 'armor',
-    //     data: randomOfType(armor, 'waist'),
-    //     decorations: [rand(decorations), rand(decorations), rand(decorations)]
-    // }, {
-    //     category: 'armor',
-    //     data: findById(armor, 533),
-    //     // data: randomOfType(armor, 'chest'),
-    //     decorations: [rand(decorations)]
-    // }, {
-    //     category: 'armor',
-    //     data: randomOfType(armor, 'legs'),
-    //     decorations: [rand(decorations), rand(decorations)]
-    // }]
-
     state.gear.push(new Gear(merge(rand(weapons), 'category', 'weapon')))
     state.gear.push(new Gear(merge(merge(rand(charms), 'category', 'charm'), 'rank', rand(2))))
     state.gear.push(new Gear(merge(randomOfType(armor, 'gloves'), 'category', 'armor')))
@@ -273,7 +242,6 @@ function randomizeGear() {
 
 loadState()
 refreshGear()
-// re()
 
 function test(func) {
     console.log(func(rand(armor)))
