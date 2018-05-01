@@ -121,7 +121,7 @@ var refreshStats = () => {
 }
 
 var loadState = () => {
-    var pieces = (document.location.hash).slice(1).split('_')
+    var pieces = atob(document.location.hash).slice(1).split('_')
 
     for(var piece of pieces) {
         var metadata = piece.split('-')
@@ -173,7 +173,7 @@ var setState = () => {
 
     hash = hash.slice(0, -1)
 
-    document.location.hash = hash
+    document.location.hash = btoa(hash)
 }
 
 
@@ -234,12 +234,13 @@ function populateGear() {
 }
 
 function randomizeGear() {
-    populateGear();
-    refreshGear();
-    setState();
+    populateGear()
+    refreshGear()
+    setState()
     return state.gear
 }
 
+randomizeGear()
 loadState()
 refreshGear()
 
